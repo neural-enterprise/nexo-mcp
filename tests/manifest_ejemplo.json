@@ -1,0 +1,52 @@
+{
+  "metadata": {"dbt_version": "1.12.5", "project_name": "nexo"},
+  "nodes": {
+    "model.nexo.operaciones__ocupacion": {
+      "resource_type": "model",
+      "name": "operaciones__ocupacion",
+      "alias": "operaciones__ocupacion",
+      "schema": "marts",
+      "path": "marts/operaciones/operaciones__ocupacion.sql",
+      "description": "Ocupación de los centros residenciales por centro y día.\n\nReglas provisionales.",
+      "config": {
+        "meta": {
+          "dueno": "Operaciones (Mentalia)",
+          "estado": "demo",
+          "expuesto_claude": true,
+          "grano": "Día × centro (solo ResiPlus)",
+          "aviso": "Demo. Reglas provisionales."
+        }
+      },
+      "columns": {
+        "fecha": {"name": "fecha", "data_type": "date", "description": "Dimensión. Día de la foto."},
+        "codigo_centro": {"name": "codigo_centro", "data_type": "text", "description": "Dimensión. Código del centro."},
+        "territorio": {"name": "territorio", "data_type": "text", "description": "Dimensión. Territorio del centro."},
+        "centro_en_maestro": {"name": "centro_en_maestro", "data_type": "boolean", "description": "Control. Está en el maestro."},
+        "plazas_ocupadas_provisional": {"name": "plazas_ocupadas_provisional", "data_type": "bigint", "description": "Métrica. Plazas ocupadas."},
+        "camas_activas": {"name": "camas_activas", "data_type": "bigint", "description": "Métrica. Camas activas."},
+        "fecha_corte": {"name": "fecha_corte", "data_type": "date", "description": "Técnica. Último día completo."},
+        "construido_en": {"name": "construido_en", "data_type": "timestamptz", "description": "Técnica. Cuándo construyó dbt."}
+      }
+    },
+    "model.nexo.dim_cuenta_contable": {
+      "resource_type": "model",
+      "name": "dim_cuenta_contable",
+      "alias": "dim_cuenta_contable",
+      "schema": "marts",
+      "path": "marts/dimensiones/dim_cuenta_contable.sql",
+      "description": "Plan de cuentas.",
+      "config": {"meta": {}},
+      "columns": {}
+    },
+    "model.nexo.stg_resiplus__estancias": {
+      "resource_type": "model",
+      "name": "stg_resiplus__estancias",
+      "alias": "stg_resiplus__estancias",
+      "schema": "staging",
+      "path": "staging/resiplus/stg_resiplus__estancias.sql",
+      "description": "Estancias por residente.",
+      "config": {"meta": {"expuesto_claude": true}},
+      "columns": {}
+    }
+  }
+}

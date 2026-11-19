@@ -1,0 +1,6 @@
+# Versiones exactas: las mismas en local, en CI y en la imagen. Para actualizar: cambiar aquí, probar y abrir una PR.
+mcp==2.3.0
+psycopg[binary]==3.3.9
+pyjwt[crypto]==2.15.1
+azure-identity==1.27.0
+uvicorn==0.54.0

@@ -1,0 +1,18 @@
+[project]
+name = "nexo-mcp"
+version = "0.1.0"
+description = "Servidor MCP de NEXO (Grupo Neural): el comité de dirección consulta los marts desde Claude"
+requires-python = ">=3.12"
+readme = "README.md"
+license-files = ["LICENSE"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 140
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
