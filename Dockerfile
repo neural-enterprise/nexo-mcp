@@ -1,5 +1,5 @@
 # Imagen del servidor MCP de NEXO. Se despliega en Azure Container Apps (docs/despliegue.md).
-FROM python:3.12-slim
+FROM python:3.15-slim
 
 ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 \
     NEXO_MCP_HOST=0.0.0.0 NEXO_MCP_PUERTO=8000
